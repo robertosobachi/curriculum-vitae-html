@@ -5,3 +5,4 @@ src/elements/**/*-styles.html
 src/elements/**/*-script.html
 src/images
 .DS_Store
+.firebaserc

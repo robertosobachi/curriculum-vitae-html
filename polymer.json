@@ -35,6 +35,7 @@
   },
   {
     "name": "es5-unbundled",
+    "addServiceWorker": true,
     "js": {"minify": true},
     "css": {"minify": true},
     "html": {"minify": true}
