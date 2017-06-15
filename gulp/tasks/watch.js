@@ -1,0 +1,34 @@
+require('../utils/requires.js');
+
+/* globals gulp */
+/* globals isDevBuild */
+/* globals fontYellowBold */
+/* globals config */
+
+gulp.task('watch:reload', (cb) => {
+  browserSync.reload();
+  cb();
+});
+
+gulp.task('watch', () => {
+  browserSync({
+    port: 5001,
+    host: 'localhost',
+    open: false,
+    debugInfo: false,
+    logLevel: 'silent'
+  });
+
+
+  // Watches for scss files changes.
+  gulp.watch([config.path.srcElements + '/**/*.scss'],
+             ['sass:lint', 'sass:dev', 'watch:reload']);
+
+  // Watches for html file changes.
+  gulp.watch([config.path.srcElements + '/**/*.html'], ['watch:reload']);
+
+  gulp.watch([config.path.srcImages + '/**/*.png',
+              config.path.srcImages + '/**/*.jpg',
+              config.path.srcImages + '/**/*.jpeg'],
+             ['images', 'watch:reload']);
+});
