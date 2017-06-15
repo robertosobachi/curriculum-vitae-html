@@ -21,8 +21,7 @@
   },
 
   "builds": [{
-    "name": "es5-bundled",
-    "bundle": true,
+    "name": "default",
     "addServiceWorker": true,
     "addPushManifest": true,
     "insertPrefetchLinks": true,
@@ -32,28 +31,5 @@
     },
     "css": {"minify": true},
     "html": {"minify": true}
-  },
-  {
-    "name": "es5-unbundled",
-    "addServiceWorker": true,
-    "js": {"minify": true},
-    "css": {"minify": true},
-    "html": {"minify": true}
-  },
-  {
-    "name": "es6-bundled",
-    "bundle": true,
-    "addServiceWorker": true,
-    "addPushManifest": true,
-    "insertPrefetchLinks": true,
-    "js": {"minify": true},
-    "css": {"minify": true},
-    "html": {"minify": true}
-  },
-  {
-    "name": "es6-unbundled",
-    "js": {"minify": false},
-    "css": {"minify": false},
-    "html": {"minify": false}
   }]
 }

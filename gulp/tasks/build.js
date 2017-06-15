@@ -70,6 +70,5 @@ gulp.task('app:clean', function(callback) {
     config.path.destImages
   ];
 
-  // do not clean up dev builds
   return del(dirs, { dot: true });
 });

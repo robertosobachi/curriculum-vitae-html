@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "build/es5-unbundled",
+    "public": "build/default",
     "rewrites": [
       {
         "source": "!/__/**",

@@ -34,6 +34,8 @@ config.path = {
 
 config.path.destCustomIcons = config.path.srcElements + '/my-icons';
 
+config.path.defaultBuild = config.path.buildDirectory + '/default';
+
 config.customIconsName = 'my-icons';
 
 config.copyright = '<!--\n' +

@@ -19,6 +19,7 @@ gulp.task('polybuild', (callback) => {
   runSequence(
     'build:prod',
     'clean:browsersync',
+    'clean:scss',
     config.removeRoboto ? 'clean:roboto' : 'noop',
     callback
   );
@@ -81,4 +82,11 @@ gulp.task('clean:browsersync', (callback) => {
         file.contents = new Buffer(removeBrowserSync(file));
       }))
       .pipe(gulp.dest(config.path.buildDirectory));
+});
+
+
+gulp.task('clean:scss', (callback) => {
+  const directory = config.path.defaultBuild + '/src/components/**/*.scss';
+
+  return del([directory], { dot: true });
 });
