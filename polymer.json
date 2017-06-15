@@ -1,33 +1,58 @@
 {
   "entrypoint": "index.html",
-  "shell": "src/my-app.html",
+  "shell": "src/elements/my-app/my-app.html",
   "fragments": [
-    "src/my-view1.html",
-    "src/my-view2.html",
-    "src/my-view3.html",
-    "src/my-view404.html"
+    "src/elements/my-view1/my-view1.html",
+    "src/elements/my-view2/my-view2.html",
+    "src/elements/my-view3/my-view3.html",
+    "src/elements/my-view404/my-view404.html"
   ],
   "sources": [
     "src/**/*",
-    "images/**/*",
+    "src/images/**/*",
     "bower.json"
   ],
   "extraDependencies": [
     "manifest.json",
-    "bower_components/webcomponentsjs/webcomponents-lite.min.js"
+    "bower_components/webcomponentsjs/*.js"
   ],
   "lint": {
-    "rules": ["polymer-1"]
+    "rules": ["polymer-2"]
   },
-  "builds": [
-    {
-      "preset": "es5-bundled"
+
+  "builds": [{
+    "name": "es5-bundled",
+    "bundle": true,
+    "addServiceWorker": true,
+    "addPushManifest": true,
+    "insertPrefetchLinks": true,
+    "js": {
+      "compile": true,
+      "minify": true
     },
-    {
-      "preset": "es6-bundled"
-    },
-    {
-      "preset": "es6-unbundled"
-    }
-  ]
+    "css": {"minify": true},
+    "html": {"minify": true}
+  },
+  {
+    "name": "es5-unbundled",
+    "js": {"minify": true},
+    "css": {"minify": true},
+    "html": {"minify": true}
+  },
+  {
+    "name": "es6-bundled",
+    "bundle": true,
+    "addServiceWorker": true,
+    "addPushManifest": true,
+    "insertPrefetchLinks": true,
+    "js": {"minify": true},
+    "css": {"minify": true},
+    "html": {"minify": true}
+  },
+  {
+    "name": "es6-unbundled",
+    "js": {"minify": false},
+    "css": {"minify": false},
+    "html": {"minify": false}
+  }]
 }
