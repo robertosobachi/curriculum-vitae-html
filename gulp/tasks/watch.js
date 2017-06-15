@@ -32,6 +32,6 @@ gulp.task('watch', () => {
               config.path.srcImages + '/**/*.jpeg'],
              ['images', 'watch:reload']);
 
-  gulp.watch([config.path.srcElements + '/**/*.svg'],
+  gulp.watch([config.path.srcImages + '/**/*.svg'],
         ['svg:icons', 'watch:reload']);
 });
