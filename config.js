@@ -23,7 +23,7 @@ config.autoprefixer = [
 
 // Paths to source and build directories.
 config.path = {
-  srcElements: 'src/elements',
+  srcElements: 'src/components',
 
   srcImages: 'images',
 
@@ -31,6 +31,10 @@ config.path = {
 
   buildDirectory: 'build',
 };
+
+config.path.destCustomIcons = config.path.srcElements + '/my-icons';
+
+config.customIconsName = 'my-icons';
 
 config.copyright = '<!--\n' +
                    '@license\n' +

@@ -47,6 +47,7 @@ gulp.task('build:app', function(cb) {
   runSequence(
     'app:clean',
     'sass:dev',
+    'svg:icons',
     'lint',
     'images',
     cb
@@ -64,6 +65,7 @@ gulp.task('app:clean', function(callback) {
 
   let dirs = [
     config.path.srcElements + '/**/*-styles.html',
+    config.path.destCustomIcons,
     config.path.buildDirectory,
     config.path.destImages
   ];
