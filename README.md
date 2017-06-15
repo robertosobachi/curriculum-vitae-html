@@ -1,4 +1,4 @@
-# Polymer App Toolbox - Starter Kit
+# Polymer App Toolbox - Starter Kit + Gulp
 
 [![Build Status](https://travis-ci.org/PolymerElements/polymer-starter-kit.svg?branch=master)](https://travis-ci.org/PolymerElements/polymer-starter-kit)
 
@@ -29,29 +29,25 @@ The PRPL pattern, in a nutshell:
 First, install [Polymer CLI](https://github.com/Polymer/polymer-cli) using
 [npm](https://www.npmjs.com) (we assume you have pre-installed [node.js](https://nodejs.org)).
 
-    npm install -g polymer-cli
+    ```npm install -g polymer-cli```
 
 Second, install [Bower](https://bower.io/) using [npm](https://www.npmjs.com)
 
-    npm install -g bower
+    ```npm install -g bower```
 
 Third install the npm modules and all bower modules:
 
-    npm install
-    bower install
-
-##### Initialize project from template
-
-    cd polymer-starter-kit
-
-    gulp
+    All npm modules: ```npm install```
+    All bower modules: ```bower install```
+    Sass: ```gem install sass``` (if already installed, ```gem update sass```)
+    SCSS-lint: ```gem install scss-lint```
 
 ### Start the development server
 
 This command serves the app at `http://127.0.0.1:8081` and provides basic URL
 routing for the app:
 
-    gulp
+    ```gulp```
 
 ### Build
 
@@ -65,19 +61,21 @@ In addition the command also creates a fallback `build/bundled` folder,
 generated using fragment bundling, suitable for serving from non
 H2/push-compatible servers or to clients that do not support H2/Push.
 
-    gulp build
+    ```gulp build```
 
 ### Preview the build
 
 This command serves the minified version of the app at `http://127.0.0.1:8081`
 in an unbundled state, as it would be served by a push-compatible server:
 
-    polymer serve build/unbundled
+    ```polymer serve es5-unbundled```
+    ```polymer serve es6-unbundled```
 
 This command serves the minified version of the app at `http://127.0.0.1:8081`
 generated using fragment bundling:
 
-    polymer serve build/bundled
+    ```polymer serve es5-bundled```
+    ```polymer serve es6-bundled```
 
 ### Run tests
 
