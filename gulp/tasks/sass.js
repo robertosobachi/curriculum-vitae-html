@@ -1,9 +1,6 @@
 require('../utils/requires.js');
 
 /* globals gulp */
-/* globals runSequence */
-/* globals isDevBuild */
-/* globals fontYellowBold */
 /* globals config */
 /* globals modified */
 /* globals autoprefixer */

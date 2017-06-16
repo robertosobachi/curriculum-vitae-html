@@ -4,9 +4,7 @@ require('../utils/requires.js');
 /* globals runSequence */
 /* globals config */
 /* globals exec */
-/* globals rename */
 /* globals tap */
-/* globals path */
 /* globals polymer */
 /* globals buildDirectory */
 

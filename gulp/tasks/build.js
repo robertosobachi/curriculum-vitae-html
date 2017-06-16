@@ -2,11 +2,9 @@ require('../utils/requires.js');
 
 /* globals gulp */
 /* globals runSequence */
-/* globals waitFor */
 /* globals fontYellowBold */
 /* globals config */
 /* globals del */
-/* globals exec */
 /* globals buildDirectory */
 
 let buildLabel;

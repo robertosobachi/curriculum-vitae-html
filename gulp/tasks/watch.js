@@ -1,8 +1,6 @@
 require('../utils/requires.js');
 
 /* globals gulp */
-/* globals isDevBuild */
-/* globals fontYellowBold */
 /* globals config */
 
 gulp.task('watch:reload', (cb) => {

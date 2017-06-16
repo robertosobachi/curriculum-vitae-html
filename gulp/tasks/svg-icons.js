@@ -1,7 +1,6 @@
 require('../utils/requires.js');
 
-/* global gulp */
-/* globals runSequence */
+/* globals gulp */
 /* globals svgSprite */
 /* globals replace */
 /* globals rename */
@@ -17,16 +16,16 @@ const DEST_SVG_SET = config.path.srcElements + '/' + config.customIconsName;
 
 // Create a polymer iconset out of svg files
 gulp.task('svg:icons', function(callback) {
-   return gulp.src(config.path.srcImages + '/**/*.svg')
-              .pipe(svgSprite({
-                mode: {
-                  defs: true,
-                  prefix: '%s',
-                },
-              }))
-              .pipe(replace(/^<.*<defs>/g, BEGIN_ICON_SET + '<defs>'))
-              .pipe(replace('</defs></svg>', '</defs></svg>' + END_ICON_SET))
-              .pipe(replace('svg--', ''))
-              .pipe(rename(config.customIconsName + '.html'))
-              .pipe(gulp.dest(DEST_SVG_SET));
+  return gulp.src(config.path.srcImages + '/**/*.svg')
+            .pipe(svgSprite({
+              mode: {
+                defs: true,
+                prefix: '%s',
+              },
+            }))
+            .pipe(replace(/^<.*<defs>/g, BEGIN_ICON_SET + '<defs>'))
+            .pipe(replace('</defs></svg>', '</defs></svg>' + END_ICON_SET))
+            .pipe(replace('svg--', ''))
+            .pipe(rename(config.customIconsName + '.html'))
+            .pipe(gulp.dest(DEST_SVG_SET));
 });
