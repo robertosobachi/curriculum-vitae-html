@@ -57,7 +57,7 @@ gulp.task('build', function(callback) {
 gulp.task('build:app', function(cb) {
 
   runSequence(
-    'app:clean',
+    'clean',
     'sass:elements',
     'sass:styles',
     'svg:icons',
@@ -65,29 +65,4 @@ gulp.task('build:app', function(cb) {
     'images',
     cb
   );
-});
-
-// Empty gulp task when we don't want to run a specific task in development
-// mode.
-gulp.task('noop', function(cb) {
-  cb();
-});
-
-// Okay, so first thing we do is clear the build directory
-gulp.task('app:clean', function(callback) {
-
-  let dirs = [
-    // The generated syles.
-    config.path.srcElements + '/**/*-styles.html',
-    // The custom icons.
-    config.path.srcElements + '/' + config.customIconsName,
-    // The build directory.
-    buildDirectory,
-    // The optimised images.
-    config.path.destImages,
-    // The global styles directory.
-    config.path.destGlobalCss
-  ];
-
-  return del(dirs, { dot: true });
 });
