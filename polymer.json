@@ -31,5 +31,36 @@
     },
     "css": {"minify": true},
     "html": {"minify": true}
-  }]
+  }],
+
+  "config": {
+
+    "port": "8081",
+
+    "removeRoboto": true,
+
+    "autoprefixer": [
+      "ie >= 11",
+      "ie_mob >= 11",
+      "ff >= 30",
+      "chrome >= 34",
+      "safari >= 7",
+      "opera >= 23",
+      "ios >= 7",
+      "android >= 4.4",
+      "bb >= 10"
+    ],
+
+    "customIconsName": "my-icons",
+
+    "path": {
+      "srcElements": "src/components",
+
+      "srcImages": "images",
+
+      "destImages": "src/images",
+
+      "defaultBuild": "build/default"
+    }
+  }
 }
