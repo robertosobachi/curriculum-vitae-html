@@ -7,6 +7,7 @@ require('../utils/requires.js');
 /* globals config */
 /* globals del */
 /* globals exec */
+/* globals buildDirectory */
 
 let buildLabel;
 
@@ -64,9 +65,13 @@ gulp.task('noop', function(cb) {
 gulp.task('app:clean', function(callback) {
 
   let dirs = [
+    // The generated syles.
     config.path.srcElements + '/**/*-styles.html',
-    config.path.destCustomIcons,
-    config.path.buildDirectory,
+    // The custom icons.
+    config.path.srcElements + '/' + config.customIconsName,
+    // The build directory.
+    buildDirectory,
+    // The optimised images.
     config.path.destImages
   ];
 

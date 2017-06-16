@@ -12,7 +12,7 @@ const BEGIN_ICON_SET =
       '<iron-iconset-svg name="' + config.customIconsName + '" size="24">\n';
 const END_ICON_SET = '\n</iron-iconset-svg>';
 
-const DEST_SVG_SET = config.path.destCustomIcons;
+const DEST_SVG_SET = config.path.srcElements + '/' + config.customIconsName;
 
 
 // Create a polymer iconset out of svg files

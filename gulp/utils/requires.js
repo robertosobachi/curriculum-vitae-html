@@ -1,6 +1,11 @@
 // Config and utils
 global.polymer = require('../../polymer.json');
-global.config = require('../../config.js');
+
+// This should be the default `build` directory when compiling
+// using the polymer-CLI, so we define it here to keep the config file simpler.
+global.buildDirectory = 'build';
+
+global.config = global.polymer.config;
 global.util = require('gulp-util');
 
 // Gulp and other npm packages
@@ -18,7 +23,6 @@ global.autoprefixer = require('gulp-autoprefixer');
 global.sass = require('gulp-sass');
 global.scssLint = require('gulp-scss-lint');
 global.rename = require('gulp-rename');
-// global.buffer = require('vinyl-buffer');
 global.tap = require('gulp-tap');
 global.path = require('path');
 global.browserSync = require('browser-sync');
