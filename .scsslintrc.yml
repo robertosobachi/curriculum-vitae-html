@@ -294,7 +294,7 @@ linters:
       - set-link-source
       - unicode-bidi
       - speak
-    ignore_unspecified: false
+    ignore_unspecified: true
     min_properties: 2
     separate_groups: true
 

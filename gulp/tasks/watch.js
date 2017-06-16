@@ -1,8 +1,6 @@
 require('../utils/requires.js');
 
 /* globals gulp */
-/* globals isDevBuild */
-/* globals fontYellowBold */
 /* globals config */
 
 gulp.task('watch:reload', (cb) => {
@@ -24,6 +22,9 @@ gulp.task('watch', () => {
   gulp.watch([config.path.srcElements + '/**/*.scss'],
              ['sass:lint', 'sass:dev', 'watch:reload']);
 
+  gulp.watch([config.path.srcGlobalSass + '/**/*.scss'],
+             ['sass:lint', 'sass:styles', 'watch:reload']);
+
   // Watches for html file changes.
   gulp.watch([config.path.srcElements + '/**/*.html'], ['watch:reload']);
 
@@ -31,4 +32,7 @@ gulp.task('watch', () => {
               config.path.srcImages + '/**/*.jpg',
               config.path.srcImages + '/**/*.jpeg'],
              ['images', 'watch:reload']);
+
+  gulp.watch([config.path.srcImages + '/**/*.svg'],
+        ['svg:icons', 'watch:reload']);
 });

@@ -53,6 +53,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <meta name="msapplication-TileColor" content="#3f51b5">
     <meta name="msapplication-tap-highlight" content="no">
 
+    <!-- Add any global styles for body, document, etc. -->
+    <link rel="stylesheet" href="src/styles/main.css">
+
     <script>
       // Register the base URL
       const baseUrl = document.querySelector('base').href;
@@ -69,18 +72,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <script src="bower_components/webcomponentsjs/webcomponents-loader.js"></script>
 
     <!-- Load your application shell -->
-    <link rel="import" href="src/elements/my-app/my-app.html">
-
-    <!-- Add any global styles for body, document, etc. -->
-    <style>
-      body {
-        margin: 0;
-        font-family: 'Roboto', 'Noto', sans-serif;
-        line-height: 1.5;
-        min-height: 100vh;
-        background-color: #eeeeee;
-      }
-    </style>
+    <link rel="import" href="src/components/my-app/my-app.html">
   </head>
   <body>
     <my-app></my-app>

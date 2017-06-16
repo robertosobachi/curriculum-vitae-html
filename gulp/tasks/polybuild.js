@@ -4,12 +4,11 @@ require('../utils/requires.js');
 /* globals runSequence */
 /* globals config */
 /* globals exec */
-/* globals rename */
 /* globals tap */
-/* globals path */
+/* globals polymer */
+/* globals buildDirectory */
 
-// Empty gulp task when we don't want to run a specific task in development
-// mode.
+// Empty gulp task when it doesn't meet a condition.
 gulp.task('noop', function(cb) {
   cb();
 });
@@ -19,6 +18,8 @@ gulp.task('polybuild', (callback) => {
   runSequence(
     'build:prod',
     'clean:browsersync',
+    'clean:scss',
+    'clean:srcImages',
     config.removeRoboto ? 'clean:roboto' : 'noop',
     callback
   );
@@ -57,6 +58,9 @@ const removeRoboto = (file) => {
   return content;
 }
 
+/**
+ * Gulp task to execute `polymer build`.
+ */
 gulp.task('build:prod', (callback) => {
   const buildMessage =
       'Building production.. it won\'t be 2 seconds.. please wait..';
@@ -67,18 +71,59 @@ gulp.task('build:prod', (callback) => {
   });
 });
 
+/**
+ * Gulp task to remove the roboto font calls.
+ */
 gulp.task('clean:roboto', (callback) => {
-  return gulp.src(config.path.buildDirectory + '/**/*.html')
+  return gulp.src(buildDirectory + '/**/*.html')
       .pipe(tap((file) => {
         file.contents = new Buffer(removeRoboto(file));
       }))
-      .pipe(gulp.dest(config.path.buildDirectory));
+      .pipe(gulp.dest(buildDirectory));
 });
 
+/**
+ * Gulp task to remove the browser-sync tag from the build versions.
+ */
 gulp.task('clean:browsersync', (callback) => {
-  return gulp.src(config.path.buildDirectory + '/**/index.html')
+  return gulp.src(buildDirectory + '/**/index.html')
       .pipe(tap((file) => {
         file.contents = new Buffer(removeBrowserSync(file));
       }))
-      .pipe(gulp.dest(config.path.buildDirectory));
+      .pipe(gulp.dest(buildDirectory));
+});
+
+/**
+ * Gulp task to remove the image sources.
+ */
+gulp.task('clean:srcImages', (callback) => {
+  let buildDirectories = [];
+  let build;
+
+  let finalPartPath = '/' + config.path.srcImages;
+
+  for (build of polymer.builds) {
+    buildDirectories.push(buildDirectory + '/' + build.name + finalPartPath);
+  }
+
+  return del(buildDirectories, { dot: true });
+});
+
+/**
+ * Gulp task to remove the CSS files from the build directories.
+ */
+gulp.task('clean:scss', (callback) => {
+  let buildDirectories = [];
+  let build;
+
+  let finalPartPath = '/' + config.path.srcElements + '/**/*.scss';
+  let finalPartStylesPath = '/' + config.path.srcGlobalSass;
+
+  for (build of polymer.builds) {
+    buildDirectories.push(buildDirectory + '/' + build.name + finalPartPath);
+    buildDirectories.push(
+        buildDirectory + '/' + build.name + finalPartStylesPath);
+  }
+
+  return del(buildDirectories, { dot: true });
 });

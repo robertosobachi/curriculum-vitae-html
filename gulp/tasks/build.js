@@ -2,25 +2,37 @@ require('../utils/requires.js');
 
 /* globals gulp */
 /* globals runSequence */
-/* globals waitFor */
 /* globals fontYellowBold */
 /* globals config */
 /* globals del */
-/* globals exec */
+/* globals buildDirectory */
+/* globals isDevBuild */
 
 let buildLabel;
 
 const buildDone = function(err) {
   if (!err) {
-    return log(fontYellowBold('Finished building (' + buildLabel + ')'));
+
+    log(fontYellowBold('Finished building (' + getIsDevBuild() + ')'));
+
+    if (isDevBuild) {
+      const serveMessage = 'Application running under the following URLs: http://127.0.0.1:' + config.port;
+
+      log(fontCyanBold(serveMessage));
+    }
+
+    return;
   }
+};
+
+const getIsDevBuild = () => {
+  return (isDevBuild) ? 'Development' : 'Production';
 };
 
 gulp.task('default', function(cb) {
 
-  buildLabel = 'Development';
-
-  log(fontYellowBold('Building (' + buildLabel + ')'));
+  isDevBuild = true;
+  log(fontYellowBold('Building (' + getIsDevBuild() + ')'));
 
   runSequence(
     'build:app',
@@ -32,8 +44,8 @@ gulp.task('default', function(cb) {
 
 gulp.task('build', function(callback) {
 
-  buildLabel = 'Production';
-  log(fontYellowBold('Building (' + buildLabel + ')'));
+  isDevBuild = false;
+  log(fontYellowBold('Building (' + getIsDevBuild() + ')'));
 
   runSequence(
     'build:app',
@@ -46,7 +58,9 @@ gulp.task('build:app', function(cb) {
 
   runSequence(
     'app:clean',
-    'sass:dev',
+    'sass:elements',
+    'sass:styles',
+    'svg:icons',
     'lint',
     'images',
     cb
@@ -63,11 +77,17 @@ gulp.task('noop', function(cb) {
 gulp.task('app:clean', function(callback) {
 
   let dirs = [
+    // The generated syles.
     config.path.srcElements + '/**/*-styles.html',
-    config.path.buildDirectory,
-    config.path.destImages
+    // The custom icons.
+    config.path.srcElements + '/' + config.customIconsName,
+    // The build directory.
+    buildDirectory,
+    // The optimised images.
+    config.path.destImages,
+    // The global styles directory.
+    config.path.destGlobalCss
   ];
 
-  // do not clean up dev builds
   return del(dirs, { dot: true });
 });
