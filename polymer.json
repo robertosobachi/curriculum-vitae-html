@@ -10,6 +10,7 @@
   "sources": [
     "src/**/*",
     "src/images/**/*",
+    "src/styles/**/*",
     "bower.json"
   ],
   "extraDependencies": [
