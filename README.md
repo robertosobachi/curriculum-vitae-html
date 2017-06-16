@@ -65,17 +65,9 @@ H2/push-compatible servers or to clients that do not support H2/Push.
 
 ### Preview the build
 
-This command serves the minified version of the app at `http://127.0.0.1:8081`
-in an unbundled state, as it would be served by a push-compatible server:
+This command serves the minified version of the app at `http://127.0.0.1:8081`:
 
-    polymer serve es5-unbundled
-    polymer serve es6-unbundled
-
-This command serves the minified version of the app at `http://127.0.0.1:8081`
-generated using fragment bundling:
-
-    polymer serve es5-bundled
-    polymer serve es6-bundled
+    polymer serve build/default
 
 ### Run tests
 
