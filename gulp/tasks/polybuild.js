@@ -8,8 +8,7 @@ require('../utils/requires.js');
 /* globals polymer */
 /* globals buildDirectory */
 
-// Empty gulp task when we don't want to run a specific task in development
-// mode.
+// Empty gulp task when it doesn't meet a condition.
 gulp.task('noop', function(cb) {
   cb();
 });
@@ -100,8 +99,10 @@ gulp.task('clean:scss', (callback) => {
   let buildDirectories = [];
   let build;
 
+  let finalPartPath = '/' + config.path.srcElements + '/**/*.scss';
+
   for (build of polymer.builds) {
-    buildDirectories.push(buildDirectory + '/' + build.name + '/**/*.scss');
+    buildDirectories.push(buildDirectory + '/' + build.name + finalPartPath);
   }
 
   return del(buildDirectories, { dot: true });
