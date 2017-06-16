@@ -6,20 +6,33 @@ require('../utils/requires.js');
 /* globals config */
 /* globals del */
 /* globals buildDirectory */
+/* globals isDevBuild */
 
 let buildLabel;
 
 const buildDone = function(err) {
   if (!err) {
-    return log(fontYellowBold('Finished building (' + buildLabel + ')'));
+
+    log(fontYellowBold('Finished building (' + getIsDevBuild() + ')'));
+
+    if (isDevBuild) {
+      const serveMessage = 'Application running under the following URLs: http://127.0.0.1:' + config.port;
+
+      log(fontCyanBold(serveMessage));
+    }
+
+    return;
   }
+};
+
+const getIsDevBuild = () => {
+  return (isDevBuild) ? 'Development' : 'Production';
 };
 
 gulp.task('default', function(cb) {
 
-  buildLabel = 'Development';
-
-  log(fontYellowBold('Building (' + buildLabel + ')'));
+  isDevBuild = true;
+  log(fontYellowBold('Building (' + getIsDevBuild() + ')'));
 
   runSequence(
     'build:app',
@@ -31,8 +44,8 @@ gulp.task('default', function(cb) {
 
 gulp.task('build', function(callback) {
 
-  buildLabel = 'Production';
-  log(fontYellowBold('Building (' + buildLabel + ')'));
+  isDevBuild = false;
+  log(fontYellowBold('Building (' + getIsDevBuild() + ')'));
 
   runSequence(
     'build:app',
@@ -45,7 +58,8 @@ gulp.task('build:app', function(cb) {
 
   runSequence(
     'app:clean',
-    'sass:dev',
+    'sass:elements',
+    'sass:styles',
     'svg:icons',
     'lint',
     'images',
@@ -70,7 +84,9 @@ gulp.task('app:clean', function(callback) {
     // The build directory.
     buildDirectory,
     // The optimised images.
-    config.path.destImages
+    config.path.destImages,
+    // The global styles directory.
+    config.path.destGlobalCss
   ];
 
   return del(dirs, { dot: true });

@@ -6,5 +6,6 @@ src/elements/**/*-script.html
 src/components/**/*-styles.html
 src/components/**/*-script.html
 src/images
+src/styles
 .DS_Store
 .firebaserc

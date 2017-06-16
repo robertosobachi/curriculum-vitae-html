@@ -3,6 +3,7 @@ require('../utils/requires.js');
 /* globals gulp */
 /* globals config */
 /* globals modified */
+/* globals runSequence */
 /* globals autoprefixer */
 /* globals sass */
 /* globals rename */
@@ -17,7 +18,7 @@ const YEAR = new Date().getFullYear();
 
 const COPYRIGHT = '<!--\n' +
                   '@license\n' +
-                  'Copyright (c) 2016 The Polymer Project Authors. All ' +
+                  'Copyright (c) {{year}} The Polymer Project Authors. All ' +
                   'rights reserved.\n' +
                   'This code may only be used under the BSD style license ' +
                   'found at http://polymer.github.io/LICENSE.txt\n' +
@@ -52,7 +53,7 @@ const bundleSass = (file) => {
 }
 
 // All sass tasks - development
-gulp.task('sass:dev', (callback) => {
+gulp.task('sass:elements', (callback) => {
 
   return gulp.src(ELEMENTS_SASS)
              .pipe(modified('sass:dev'))

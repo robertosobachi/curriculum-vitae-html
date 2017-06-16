@@ -22,6 +22,9 @@ gulp.task('watch', () => {
   gulp.watch([config.path.srcElements + '/**/*.scss'],
              ['sass:lint', 'sass:dev', 'watch:reload']);
 
+  gulp.watch([config.path.srcGlobalSass + '/**/*.scss'],
+             ['sass:lint', 'sass:styles', 'watch:reload']);
+
   // Watches for html file changes.
   gulp.watch([config.path.srcElements + '/**/*.html'], ['watch:reload']);
 

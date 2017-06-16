@@ -56,7 +56,11 @@
     "path": {
       "srcElements": "src/components",
 
-      "srcImages": "images",
+      "srcGlobalSass": "src/sass",
+
+      "destGlobalCss": "src/styles",
+
+      "srcImages": "src/srcImages",
 
       "destImages": "src/images"
     }

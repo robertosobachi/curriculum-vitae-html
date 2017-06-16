@@ -19,6 +19,7 @@ gulp.task('polybuild', (callback) => {
     'build:prod',
     'clean:browsersync',
     'clean:scss',
+    'clean:srcImages',
     config.removeRoboto ? 'clean:roboto' : 'noop',
     callback
   );
@@ -93,6 +94,22 @@ gulp.task('clean:browsersync', (callback) => {
 });
 
 /**
+ * Gulp task to remove the image sources.
+ */
+gulp.task('clean:srcImages', (callback) => {
+  let buildDirectories = [];
+  let build;
+
+  let finalPartPath = '/' + config.path.srcImages;
+
+  for (build of polymer.builds) {
+    buildDirectories.push(buildDirectory + '/' + build.name + finalPartPath);
+  }
+
+  return del(buildDirectories, { dot: true });
+});
+
+/**
  * Gulp task to remove the CSS files from the build directories.
  */
 gulp.task('clean:scss', (callback) => {
@@ -100,9 +117,12 @@ gulp.task('clean:scss', (callback) => {
   let build;
 
   let finalPartPath = '/' + config.path.srcElements + '/**/*.scss';
+  let finalPartStylesPath = '/' + config.path.srcGlobalSass;
 
   for (build of polymer.builds) {
     buildDirectories.push(buildDirectory + '/' + build.name + finalPartPath);
+    buildDirectories.push(
+        buildDirectory + '/' + build.name + finalPartStylesPath);
   }
 
   return del(buildDirectories, { dot: true });

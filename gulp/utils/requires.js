@@ -5,6 +5,8 @@ global.polymer = require('../../polymer.json');
 // using the polymer-CLI, so we define it here to keep the config file simpler.
 global.buildDirectory = 'build';
 
+global.isDevBuild = true;
+
 global.config = global.polymer.config;
 global.util = require('gulp-util');
 
@@ -27,7 +29,8 @@ global.browserSync = require('browser-sync');
 global.imagemin = require('gulp-imagemin');
 global.webp = require('gulp-webp');
 global.exec = require('child_process').exec;
-
+global.cssnano = require('gulp-cssnano');
 global.svgSprite = require('gulp-svg-sprite');
 global.replace = require('gulp-replace');
+global.gulpif = require('gulp-if');
 
