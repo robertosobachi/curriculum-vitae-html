@@ -35,12 +35,12 @@ Second, install [Bower](https://bower.io/) using [npm](https://www.npmjs.com)
 
     npm install -g bower
 
-Third install the npm modules and all bower modules:
+Third, install all npm and bower modules:
 
-    All npm modules: npm install
-    All bower modules: bower install
-    Sass: gem install sass (if already installed, gem update sass)
-    SCSS-lint: gem install scss-lint
+    npm install
+    bower install
+    gem install sass (if already installed, gem update sass)
+    gem install scss-lint
 
 ### Start the development server
 
