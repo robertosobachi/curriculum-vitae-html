@@ -58,9 +58,7 @@
 
       "srcImages": "images",
 
-      "destImages": "src/images",
-
-      "defaultBuild": "build/default"
+      "destImages": "src/images"
     }
   }
 }
