@@ -38,7 +38,7 @@
 
     "port": "8081",
 
-    "removeRoboto": true,
+    "removeRoboto": false,
 
     "autoprefixer": [
       "ie >= 11",
