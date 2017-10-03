@@ -1,9 +1,14 @@
+@import '../shared-styles/shared';
+
 :host {
   display: block;
 
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 :host .title {
   color: #5ba4e5;
+
+  text-transform: uppercase;
 }
+
