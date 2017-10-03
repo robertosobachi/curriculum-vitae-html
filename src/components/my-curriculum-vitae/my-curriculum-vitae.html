@@ -10,7 +10,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="../../../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../../../bower_components/font-roboto/roboto.html">
-<link rel="import" href="../shared-styles/shared-styles.html">
 <link rel="import" href="my-curriculum-vitae-styles.html">
 
 <link rel="import" href="../my-title/my-title.html">
@@ -20,7 +19,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <dom-module id="my-curriculum-vitae">
   <template>
-    <style include="shared-styles"></style>
     <style include="my-curriculum-vitae-styles"></style>
 
     <header class="row">
@@ -39,6 +37,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         <my-experience title="Education"
                        class="only-mobile"
+                       fullbleed
                        data="[[data.education]]"
         ></my-experience>
 
@@ -49,6 +48,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         <my-experience title="Education"
                        class="only-desktop"
+                       fullbleed
                        data="[[data.education]]"
         ></my-experience>
       </div>

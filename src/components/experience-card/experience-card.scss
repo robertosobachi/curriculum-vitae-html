@@ -1,3 +1,8 @@
+@import '../shared-styles/shared';
+
+// Overrides the breakpoint to give a nicer responsivenes here.
+$breakpoint: 750px;
+
 :host {
   display: block;
 
@@ -12,11 +17,6 @@
   color: #ea561a;
 }
 
-:host .description {
-
-}
-
-
 :host .row {
   display: flex;
 
@@ -26,7 +26,7 @@
 
   margin-bottom: 20px;
 
-  @media (min-width: 750px) {
+  @media (min-width: $breakpoint) {
     flex-direction: row;
   }
 
@@ -35,7 +35,7 @@
 :host .row > * {
   width: 100%;
 
-  @media (min-width: 750px) {
+  @media (min-width: $breakpoint) {
 
     width: 68%;
 
@@ -43,4 +43,21 @@
       width: 28%;
     }
   };
+}
+
+
+:host([fullbleed]) .row {
+
+  flex-direction: column;
+}
+
+:host([fullbleed]) .row > * {
+
+  @media (min-width: $breakpoint) {
+    width: 100%;
+
+    &:first-child {
+      width: 100%;
+    }
+  }
 }

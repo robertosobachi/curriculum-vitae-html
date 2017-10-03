@@ -9,20 +9,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <link rel="import" href="../../../bower_components/polymer/polymer-element.html">
-<link rel="import" href="../shared-styles/shared-styles.html">
 <link rel="import" href="my-experience-styles.html">
 
 <link rel="import" href="../experience-card/experience-card.html">
 
 <dom-module id="my-experience">
   <template>
-    <style include="shared-styles"></style>
     <style include="my-experience-styles"></style>
 
     <h3>[[title]]</h3>
 
     <template is="dom-repeat" items="[[data]]">
-      <experience-card experience=[[item]]></experience-card>
+      <experience-card fullbleed$="[[fullbleed]]" experience=[[item]]>
+      </experience-card>
     </template>
 
 
@@ -39,6 +38,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           title: {
             type: String,
             value: ''
+          },
+
+          fullbleed: {
+            type: Boolean,
+            reflectToAttribute: true,
+            value: false
           }
         };
       }
