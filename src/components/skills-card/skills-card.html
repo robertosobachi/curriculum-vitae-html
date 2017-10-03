@@ -17,24 +17,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <style include="shared-styles"></style>
     <style include="skills-card-styles"></style>
 
-    <h6 class="">KNOWLEDGE &amp; SKILLS</h6>
+    <h6 class="">[[skills.title]]</h6>
     <div class="">
         <ul class="">
-            <li>HTML5 + CSS3 (SCSS + SASS + Stylus)</li>
-            <li>Node.js &amp; Jade</li>
-            <li>Facebook API + Twitter API</li>
-            <li>Javascript &amp; Coffee Script</li>
-            <li>Cordova Platform(Phonegap)</li>
-            <li>Php 5 OOP &amp; MVC</li>
-            <li>SQL (MySQL) + Couchbase</li>
-            <li>Wordpress</li>
-        </ul>
-        <ul class="">
-            <li>Agile &amp; Scrum</li>
-            <li>Continuous Integration</li>
-            <li>CVS, Mercurial + GIT</li>
-            <li>Unit Testing</li>
-            <li>XML &amp; XSLT</li>
+          <template is="dom-repeat" items="[[skills.list]]">
+            <li>[[item]]</li>
+          </template>
         </ul>
     </div>
 

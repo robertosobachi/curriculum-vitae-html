@@ -19,9 +19,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <style include="shared-styles"></style>
     <style include="my-skills-styles"></style>
 
-    <skills-card></skills-card>
-    <skills-card></skills-card>
-    <skills-card></skills-card>
+    <template is="dom-repeat" items="[[data]]">
+      <skills-card skills="[[item]]"></skills-card>
+    </template>
+
 
   </template>
 
