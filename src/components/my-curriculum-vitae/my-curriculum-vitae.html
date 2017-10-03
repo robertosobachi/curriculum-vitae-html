@@ -17,7 +17,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../my-contact/my-contact.html">
 <link rel="import" href="../my-experience/my-experience.html">
 <link rel="import" href="../my-skills/my-skills.html">
-<link rel="import" href="../my-education/my-education.html">
 
 <dom-module id="my-curriculum-vitae">
   <template>
@@ -35,18 +34,21 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <div class="row">
 
       <div>
-        <my-experience data="[[data.experiences]]"></my-experience>
+        <my-experience title="Work Experience" data="[[data.experiences]]">
+        </my-experience>
 
-        <my-education class="only-mobile" data="[[data.education]]">
-        </my-education>
+        <my-experience title="Education"
+                      class="only-mobile"
+                      data="[[data.education]]"
+        ></my-experience>
 
       </div>
 
       <div>
         <my-skills data="[[data.skills]]"></my-skills>
 
-        <my-education class="only-desktop" data="[[data.education]]"
-        ></my-education>
+        <my-experience class="only-desktop" data="[[data.education]]"
+        ></my-experience>
       </div>
 
     </div>

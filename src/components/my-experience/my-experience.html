@@ -19,7 +19,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <style include="shared-styles"></style>
     <style include="my-experience-styles"></style>
 
-    <h3>Work Experience</h3>
+    <h3>[[title]]</h3>
 
     <template is="dom-repeat" items="[[data]]">
       <experience-card experience=[[item]]></experience-card>
@@ -30,7 +30,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <script>
     class MyExperience extends Polymer.Element {
-      static get is() { return 'my-experience'; }
+      static get is() {
+        return 'my-experience';
+      }
+
+      static get properties() {
+        return {
+          title: {
+            type: String,
+            value: ''
+          }
+        };
+      }
     }
 
     window.customElements.define(MyExperience.is, MyExperience);
