@@ -15,11 +15,21 @@ a:visited {
   border-bottom: 1px dotted #666;
 }
 
+a:hover,
+a:focus {
+  color: #284600;
+
+  background: #bed47a;
+
+  border-bottom: 1px dotted #9fbb58;
+}
+
 h3 {
-  color: #1e1e1e;
 
   padding-bottom: 5px;
   margin-bottom: 10px;
+
+  color: #1e1e1e;
 
   border-bottom: 5px solid #e0e0e0;
 }
