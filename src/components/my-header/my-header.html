@@ -22,9 +22,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <h2>[[data.role]]</h2>
     </div>
     <div class="">
-      <template is="dom-repeat" items="[[data.contact]]">
-        <a target="_new" href="[[item.url]]">[[item.title]]</a>
-      </template>
+      <ul class="">
+        <template is="dom-repeat" items="[[data.contact]]">
+          <li><a target="_new" href="[[item.url]]">[[item.title]]</a></li>
+        </template>
+      </ul>
     </div>
 </div>
 
