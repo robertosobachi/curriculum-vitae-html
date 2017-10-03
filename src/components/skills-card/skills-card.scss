@@ -1,9 +1,9 @@
 @import '../shared-styles/shared';
 
 // Overrides the breakpoint to give a nicer responsiveness here.
-$breakpointOld: $breakpoint;
+$breakpoint-old: $breakpoint;
 $breakpoint: 450px;
-$breakpointLarger: 650px;
+$breakpoint-larger: 650px;
 
 :host {
   display: block;
@@ -24,11 +24,11 @@ $breakpointLarger: 650px;
     column-count: 2;
   }
 
-  @media (min-width: $breakpointLarger) {
+  @media (min-width: $breakpoint-larger) {
     column-count: 3;
   }
 
-  @media (min-width: $breakpointOld) {
+  @media (min-width: $breakpoint-old) {
     column-count: 1;
   }
 }
