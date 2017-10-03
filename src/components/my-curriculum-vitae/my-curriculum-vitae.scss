@@ -15,6 +15,8 @@
   flex-direction: column;
   justify-content: space-between;
 
+  margin-bottom: 20px;
+
   @media (min-width: 750px) {
     flex-direction: row-reverse;
   }
@@ -29,7 +31,7 @@
     width: 28%;
 
     &:first-child {
-      width: 68%
+      width: 68%;
     }
   };
 }
