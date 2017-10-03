@@ -1,5 +1,10 @@
 @import '../shared-styles/shared';
 
+// Overrides the breakpoint to give a nicer responsiveness here.
+$breakpointOld: $breakpoint;
+$breakpoint: 450px;
+$breakpointLarger: 650px;
+
 :host {
   display: block;
 
@@ -12,3 +17,18 @@
   text-transform: uppercase;
 }
 
+:host .list {
+  column-count: 1;
+
+  @media (min-width: $breakpoint) {
+    column-count: 2;
+  }
+
+  @media (min-width: $breakpointLarger) {
+    column-count: 3;
+  }
+
+  @media (min-width: $breakpointOld) {
+    column-count: 1;
+  }
+}
