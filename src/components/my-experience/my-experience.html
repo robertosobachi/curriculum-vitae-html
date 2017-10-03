@@ -9,27 +9,33 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <link rel="import" href="../../../bower_components/polymer/polymer-element.html">
-<link rel="import" href="my-view404-styles.html">
+<link rel="import" href="../shared-styles/shared-styles.html">
+<link rel="import" href="my-experience-styles.html">
 
-<dom-module id="my-view404">
+<link rel="import" href="../experience-card/experience-card.html">
+
+<dom-module id="my-experience">
   <template>
-    <style include="my-view404-styles"></style>
+    <style include="shared-styles"></style>
+    <style include="my-experience-styles"></style>
 
-    Oops you hit a 404. <a href="[[rootPath]]">Head back to home.</a>
+
+    <h3>Work Experience</h3>
+
+
+    <experience-card></experience-card>
+    <experience-card></experience-card>
+    <experience-card></experience-card>
+    <experience-card></experience-card>
+
+
   </template>
 
   <script>
-    class MyView404 extends Polymer.Element {
-      static get is() { return 'my-view404'; }
-      static get properties() {
-        return {
-          // This shouldn't be neccessary, but the Analyzer isn't picking up
-          // Polymer.Element#rootPath
-          rootPath: String,
-        };
-      }
+    class MyExperience extends Polymer.Element {
+      static get is() { return 'my-experience'; }
     }
 
-    window.customElements.define(MyView404.is, MyView404);
+    window.customElements.define(MyExperience.is, MyExperience);
   </script>
 </dom-module>

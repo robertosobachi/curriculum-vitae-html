@@ -9,33 +9,28 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <link rel="import" href="../../../bower_components/polymer/polymer-element.html">
-<link rel="import" href="../my-icons/my-icons.html">
+<link rel="import" href="../shared-styles/shared-styles.html">
+<link rel="import" href="my-education-styles.html">
 
-<link rel="import" href="../my-curriculum-vitae/my-curriculum-vitae.html">
+<link rel="import" href="../education-card/education-card.html">
 
-<link rel="import" href="./my-app-styles.html">
-
-<dom-module id="my-app">
+<dom-module id="my-education">
   <template>
-    <style include="my-app-styles"></style>
+    <style include="shared-styles"></style>
+    <style include="my-education-styles"></style>
 
-    <my-curriculum-vitae></my-curriculum-vitae>
+
+    <education-card></education-card>
+
+    <education-card></education-card>
+
   </template>
 
   <script>
-    class MyApp extends Polymer.Element {
-
-      static get is() { return 'my-app'; }
-
-      static get properties() {
-        return {};
-      }
-
-      constructor() {
-        super();
-      }
+    class MyEducation extends Polymer.Element {
+      static get is() { return 'my-education'; }
     }
 
-    window.customElements.define(MyApp.is, MyApp);
+    window.customElements.define(MyEducation.is, MyEducation);
   </script>
 </dom-module>

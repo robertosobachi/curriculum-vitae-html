@@ -1,0 +1,37 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../shared-styles/shared-styles.html">
+<link rel="import" href="experience-card-styles.html">
+
+<dom-module id="experience-card">
+  <template>
+    <style include="shared-styles"></style>
+    <style include="experience-card-styles"></style>
+
+
+      <div class="">
+        <span class="">Senior Developer</span>
+          <br> <span class=""><a href="http://www.1000heads.com">1000heads</a> (London)</span>
+          <br> <span class="">February 2014 - present</span></div>
+      <div class=""> Front End and Back End development for Benefit UK, Dixons, Microsoft, Liz Earle, Lebara using Node.js, Javascript &amp; Coffee Script, Jade, Stylus, SCSS, PHP + MySQL. Working with Social Media APIs: Facebook, Twitter and Instagram APIs. RDBMS + document-oriented DB: MySQL + Couchbase, and worked with Cordova (Phonegap) to build iOS + Android apps.
+      </div>
+
+  </template>
+
+  <script>
+    class ExperienceCard extends Polymer.Element {
+      static get is() { return 'experience-card'; }
+    }
+
+    window.customElements.define(ExperienceCard.is, ExperienceCard);
+  </script>
+</dom-module>

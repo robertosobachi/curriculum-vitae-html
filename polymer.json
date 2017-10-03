@@ -2,7 +2,7 @@
   "entrypoint": "index.html",
   "shell": "src/components/my-app/my-app.html",
   "fragments": [
-    "src/components/my-home/my-home.html"
+    "src/components/my-curriculum-vitae/my-curriculum-vitae.html"
   ],
   "sources": [
     "src/**/*",

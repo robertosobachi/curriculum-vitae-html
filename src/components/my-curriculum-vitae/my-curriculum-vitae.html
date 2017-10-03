@@ -1,0 +1,41 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../shared-styles/shared-styles.html">
+<link rel="import" href="my-curriculum-vitae-styles.html">
+
+<link rel="import" href="../my-header/my-header.html">
+<link rel="import" href="../my-experience/my-experience.html">
+<link rel="import" href="../my-skills/my-skills.html">
+<link rel="import" href="../my-education/my-education.html">
+
+<dom-module id="my-curriculum-vitae">
+  <template>
+    <style include="shared-styles"></style>
+    <style include="my-curriculum-vitae-styles"></style>
+
+    <my-header></my-header>
+
+    <my-experience></my-experience>
+
+    <my-skills></my-skills>
+
+    <my-education></my-education>
+  </template>
+
+  <script>
+    class MyCurriculumVitae extends Polymer.Element {
+      static get is() { return 'my-curriculum-vitae'; }
+    }
+
+    window.customElements.define(MyCurriculumVitae.is, MyCurriculumVitae);
+  </script>
+</dom-module>
