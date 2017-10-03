@@ -15,3 +15,32 @@
 :host .description {
 
 }
+
+
+:host .row {
+  display: flex;
+
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: space-between;
+
+  margin-bottom: 20px;
+
+  @media (min-width: 750px) {
+    flex-direction: row;
+  }
+
+}
+
+:host .row > * {
+  width: 100%;
+
+  @media (min-width: 750px) {
+
+    width: 68%;
+
+    &:first-child {
+      width: 28%;
+    }
+  };
+}
