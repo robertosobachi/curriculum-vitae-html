@@ -17,15 +17,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <style include="shared-styles"></style>
     <style include="my-contact-styles"></style>
 
+    <ul class="">
+      <template is="dom-repeat" items="[[data.contact]]">
+        <li><a target="_new" href="[[item.url]]">[[item.title]]</a></li>
+      </template>
+    </ul>
 
-
-    <my-header data="[[data.header]]"></my-header>
-
-    <my-experience data="[[data.experiences]]"></my-experience>
-
-    <my-skills data="[[data.skills]]"></my-skills>
-
-    <my-education data="[[data.education]]"></my-education>
   </template>
 
   <script>

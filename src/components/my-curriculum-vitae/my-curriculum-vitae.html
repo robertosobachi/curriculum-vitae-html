@@ -12,7 +12,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../shared-styles/shared-styles.html">
 <link rel="import" href="my-curriculum-vitae-styles.html">
 
-<link rel="import" href="../my-header/my-header.html">
+<link rel="import" href="../my-title/my-title.html">
+<link rel="import" href="../my-contact/my-contact.html">
 <link rel="import" href="../my-experience/my-experience.html">
 <link rel="import" href="../my-skills/my-skills.html">
 <link rel="import" href="../my-education/my-education.html">
@@ -22,13 +23,33 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <style include="shared-styles"></style>
     <style include="my-curriculum-vitae-styles"></style>
 
-    <my-header data="[[data.header]]"></my-header>
+    <header class="row">
 
-    <my-experience data="[[data.experiences]]"></my-experience>
+      <my-title data="[[data.header]]"></my-title>
 
-    <my-skills data="[[data.skills]]"></my-skills>
+      <my-contact data="[[data.header]]"></my-contact>
 
-    <my-education data="[[data.education]]"></my-education>
+    </header>
+
+    <div class="row">
+
+      <div>
+        <my-experience data="[[data.experiences]]"></my-experience>
+
+        <my-education class="only-mobile" data="[[data.education]]">
+        </my-education>
+
+      </div>
+
+      <div>
+        <my-skills data="[[data.skills]]"></my-skills>
+
+        <my-education class="only-desktop" data="[[data.education]]"
+        ></my-education>
+      </div>
+
+    </div>
+
   </template>
 
   <script>

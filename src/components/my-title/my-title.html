@@ -10,34 +10,25 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="../../../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../shared-styles/shared-styles.html">
-<link rel="import" href="my-header-styles.html">
+<link rel="import" href="my-title-styles.html">
 
-<dom-module id="my-header">
+<dom-module id="my-title">
   <template>
     <style include="shared-styles"></style>
-    <style include="my-header-styles"></style>
+    <style include="my-title-styles"></style>
 
-    <div class="">
-      <h1>[[data.title]]</h1>
-      <h2>[[data.role]]</h2>
-    </div>
-    <div class="">
-      <ul class="">
-        <template is="dom-repeat" items="[[data.contact]]">
-          <li><a target="_new" href="[[item.url]]">[[item.title]]</a></li>
-        </template>
-      </ul>
-    </div>
+    <h1>[[data.title]]</h1>
+    <h2>[[data.role]]</h2>
 </div>
 
 
   </template>
 
   <script>
-    class MyHeader extends Polymer.Element {
-      static get is() { return 'my-header'; }
+    class MyTitle extends Polymer.Element {
+      static get is() { return 'my-title'; }
     }
 
-    window.customElements.define(MyHeader.is, MyHeader);
+    window.customElements.define(MyTitle.is, MyTitle);
   </script>
 </dom-module>
