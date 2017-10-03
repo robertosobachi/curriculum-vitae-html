@@ -22,7 +22,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <style include="shared-styles"></style>
     <style include="my-curriculum-vitae-styles"></style>
 
-    <my-header></my-header>
+    <my-header data=[[data.header]]></my-header>
 
     <my-experience></my-experience>
 
@@ -34,6 +34,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <script>
     class MyCurriculumVitae extends Polymer.Element {
       static get is() { return 'my-curriculum-vitae'; }
+
+      constructor() {
+        super();
+      }
     }
 
     window.customElements.define(MyCurriculumVitae.is, MyCurriculumVitae);

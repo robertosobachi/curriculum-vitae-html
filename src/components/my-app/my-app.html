@@ -19,20 +19,50 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <template>
     <style include="my-app-styles"></style>
 
-    <my-curriculum-vitae></my-curriculum-vitae>
+    <my-curriculum-vitae data="[[data]]"></my-curriculum-vitae>
   </template>
 
   <script>
     class MyApp extends Polymer.Element {
 
-      static get is() { return 'my-app'; }
+      static get is() {
+        return 'my-app';
+      }
 
       static get properties() {
-        return {};
+        return {
+          data: {
+            type: Object,
+            value: {
+              header: {
+                title: 'Roberto Sobachi',
+                role: 'Front End Developer',
+                contact: [
+                  {
+                    title: 'roberto.sobachi@me.com',
+                    url: 'mailto:roberto.sobachi@me.com'
+                  },
+                  {
+                    title: 'robertosobachi.com',
+                    url: 'http://robertosobachi.com'
+                  },
+                  {
+                    title: '@robertosobachi',
+                    url: 'https://twitter.com/robertosobachi'
+                  }
+                ]
+              }
+            }
+          }
+        };
       }
 
       constructor() {
         super();
+      }
+
+      connectedCallback() {
+        super.connectedCallback();
       }
     }
 

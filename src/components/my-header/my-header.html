@@ -18,12 +18,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <style include="my-header-styles"></style>
 
     <div class="">
-      <h1>Roberto Sobachi</h1>
-      <h2>Front End + Back End Developer</h2></div>
-    <div class=""> +44 7587 105769
-      <br> <a href="mailto:roberto.sobachi@me.com">roberto.sobachi@me.com</a>
-      <br> <a href="http://robertosobachi.com">http://robertosobachi.com</a>
-      <br> <a href="https://twitter.com/robertosobachi">@robertosobachi</a></div>
+      <h1>[[data.title]]</h1>
+      <h2>[[data.role]]</h2>
+    </div>
+    <div class="">
+      <template is="dom-repeat" items="[[data.contact]]">
+        <a target="_new" href="[[item.url]]">[[item.title]]</a>
+      </template>
+    </div>
 </div>
 
 
