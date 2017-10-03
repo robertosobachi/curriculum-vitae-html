@@ -1,3 +1,16 @@
 :host {
   display: block;
 }
+
+:host h1,
+:host h2 {
+  margin: 0;
+}
+
+:host h1 {
+  line-height: 32px;
+}
+
+:host h2 {
+  color: #ccc;
+}
